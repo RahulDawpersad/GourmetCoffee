@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Coffee Website Demo</title>
+    <!-- Link to Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/655b3b7e45.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <!-- Link to Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.module.css">
+</head>
+
+<body>
+
+    <!-- Header & Navbar Section -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                <img src="assets/images/logo.jpeg" alt="Coffee Logo" class="logo-img">
+                <!-- <h2 class="logo-text">☕ Coffee</h2> -->
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fa-solid fa-xmark"></button>
+
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="public/menu.html" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials" class="nav-link">Events</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <button id="menu-open-button" class="fa-solid fa-bars"></button>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <div class="hero" id="home">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/coffee-bg.jpg" alt="Gourmet Coffee" class="bg-image">
+                        <div class="overlay">
+                            <h1>Welcome To <span>GOURMET COFFEE</span></h1>
+                            <p>"The Perfect Coffee in the Heart of Durban".</p>
+                            <button class="viewmenubtn">View Menu</button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/coffee-bg.png" alt="Gourmet Coffee" class="bg-image">
+                        <div class="overlay">
+                            <h1>Welcome To <span>GOURMET COFFEE</span></h1>
+                            <p>"The Perfect Coffee in the Heart of Durban".</p>
+                            <button class="viewmenubtn">View Menu</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination & Navigation -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <!-- <div class="hero" id="home">
+            <div class="slides">
+                <div class="slide active">
+                    <video autoplay muted loop playsinline class="bg-video">
+                        <source src="assets/videos/video2.mp4" type="video/mp4">
+                    </video>
+                    <div class="overlay">
+                        <h1>Welcome To <span>GOURMET COFFEE</span></h1>
+                        <p>"The Perfect Coffee in the Heart of Durban".</p>
+                        <button class="viewmenubtn">View Menu</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <video autoplay muted loop playsinline class="bg-video">
+                        <source src="assets/videos/video1.mp4" type="video/mp4">
+                    </video>
+                    <div class="overlay">
+                        <h1>Welcome To <span>GOURMET COFFEE</span></h1>
+                        <p>"The Perfect Coffee in the Heart of Durban".</p>
+                        <button class="viewmenubtn">View Menu</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="section-content">
+                <div class="about-image-wrapper">
+                    <img src="assets/images/vendor.jpeg" title="About Image" alt="About Image" class="about-image">
+                </div>
+                <div class="about-details">
+                    <h2 class="section-title">About Us</h2>
+                    <p class="text"><span>Gourmet Coffee</span> was established in 2024 and serves specialty coffee
+                        drinks and light meals. We are based in one of the most beautiful places in Durban, which is the
+                        Durban Botanic Garden. An ideal spot to unwind, catch up with friends or enjoy some quiet time.
+                    </p>
+                    <div class="social-link-list">
+                        <a href="#" title="Gourmet Coffee Facebook Account" class="social-link"><i
+                                class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/gourmet_coffeedbg/?igsh=MTR2d3dyaGw1bGhsMQ%3D%3D#"
+                            class="social-link" title="Gourmet Coffee Instagram Account" target="_blank"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/+27740286936" title="Whatsapp Gourmet Coffee" class="social-link"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    <div class="operating-hours">
+                        <h3 class="hours-title">Opening Hours</h3>
+                        <div class="hours-details">
+                            <p>Monday – Friday: 08:30 AM - 16:00 PM</p>
+                            <hr>
+                            <p>Saturday: 08:30 AM - 16:30 PM</p>
+                            <hr>
+                            <p>Sunday: 08:30 AM - 16:30 PM</p>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catering Section -->
+        <section class="event-section">
+        <div class="content">
+           <div class="content-text">
+            <h2 class="section-title">We Cater For</h2>
+            <p class="text"> "Make your events special with our premium coffee and catering services".</p>
+           </div>
+            <div class="event-list">
+                <div class="event-card" data-text="Corporate Events">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Corporate Events</h3>
+                </div>
+                <div class="event-card" data-text="Wedding Functions">
+                    <i class="fas fa-ring"></i>
+                    <h3>Wedding Functions</h3>
+                </div>
+                <div class="event-card" data-text="Birthday Parties">
+                    <i class="fas fa-birthday-cake"></i>
+                    <h3>Birthday Parties</h3>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- Talk to us section -->
+        <section class="news-letter" id="News-letter">
+            <div class="news">
+                <div class="container">
+                    <h1 class="news-heading section-title">Elevate Your Event with <br /> Gourmet Coffee</h1>
+                    <div class="form-container"></div>
+                    <p class="des how-de">
+                        "Talk to us about bringing Gourmet Coffee to your event".
+                    </p>
+                </div>
+                <a href="mailto:natashadadoo@yahoo.com?subject=Gourmet%20Coffee%20Event%20Inquiry&body=Hello,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20bringing%20gourmet%20coffee%20to%20my%20event.%0D%0A%0D%0ARegards"
+                    class="btn">
+                    Email Us
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- Menu Section -->
+        <section class="menu-section" id="menu">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="section-content">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <img src="assets/images/hot-beverages.png" alt="Hot Beverages" class="menu-image">
+                        <h3 class="name">Hot Beverages ~ R50</h3>
+                        <p class="text">Wide range of steaming hot coffee to make you fresh and light.</p>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/cold-beverages.png" alt="Cold Beverages" class="menu-image">
+                        <h3 class="name">Cold Beverages ~ R50</h3>
+                        <p class="text">Creamy and frothy cold coffee to make you cool.</p>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/refreshment.png" alt="Refreshment" class="menu-image">
+                        <h3 class="name">Refreshment ~ R50</h3>
+                        <p class="text">Fruit and icy refreshing drink to make feel refresh.</p>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/special-combo.png" alt="Special Combo" class="menu-image">
+                        <h3 class="name">Special Combos ~ R50</h3>
+                        <p class="text">Your favorite eating and drinking combinations.</p>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/desserts.png" alt="Desserts" class="menu-image">
+                        <h3 class="name">Dessert ~ R50</h3>
+                        <p class="text">Satiate your palate and take you on a culinary treat.</p>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/burger-frenchfries.png" alt="Burger & French Fries" class="menu-image">
+                        <h3 class="name">Burger & French Fries ~ R50</h3>
+                        <p class="text">Quick bites to satisfy your small size hunger.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer-section">
+            <div class="section-content">
+                <div class="footer-logo">
+                    <img src="/assets/images/logo.jpeg" alt="Business Logo" class="logo-img">
+                </div>
+
+                <!-- Contact Info (Address, Phone, Email) -->
+                <div class="footer-contact">
+                    <p class="address">Address: 9A John Zikhali Road, Berea, 4001</p>
+                    <p class="phone">Tel: 0740286936 / 0737150576</p>
+                    <p class="email">Email:
+                        <a
+                            href="mailto:designxfolio@gmail.com?subject=Gourmet%20Coffee%20Event%20Inquiry&body=Hello,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20bringing%20gourmet%20coffee%20to%20my%20event.%0D%0A%0D%0ARegards">
+                            dgbtours@gmail.com
+                        </a>
+                    </p>
+                </div>
+
+                <!-- Social Links and Policies -->
+                <div class="footer-links">
+                    <div class="social-link-list">
+                        <a href="#" title="Gourmet Coffee Facebook Account" class="social-link"><i
+                                class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/gourmet_coffeedbg/?igsh=MTR2d3dyaGw1bGhsMQ%3D%3D#"
+                            class="social-link" title="Gourmet Coffee Instagram Account" target="_blank"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/+27740286936" title="Whatsapp Gourmet Coffee" class="social-link"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright-text">© 2025 Gourmet Coffee. All Rights Reserved.</p>
+                <p class="developed-text">Developed by <a href="https://www.rahuldawpersad.com"
+                        target="_blank">DesignX</a></p>
+            </div>
+        </footer>
+
+        <footer class="footer-section">
+            <div class="section-content">
+                <p class="copyright-text">© 2025 Coffee Shop</p>
+                <div class="social-link-list">
+                    <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+                <p class="policy-text">
+                    <a href="#" class="policy-link">Privacy Policy</a>
+                    <span class="separator">.</span>
+                    <a href="#" class="policy-link">Refund Policy</a>
+                </p>
+            </div>
+        </footer>
+    </main>
+
+
+    <!-- Link to Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        let slides = document.querySelectorAll(".slide");
+        let index = 0;
+
+        function nextSlide() {
+            slides[index].classList.remove("active");
+            index = (index + 1) % slides.length;
+            slides[index].classList.add("active");
+        }
+
+        document.querySelectorAll('.event-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+    </script>
+</body>
+
+</html>

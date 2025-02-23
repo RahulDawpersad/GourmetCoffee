@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Gourmet Coffee Menu</title>
+  <!-- Link to Font Awesome -->
+  <script src="https://kit.fontawesome.com/655b3b7e45.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/menu.module.css" />
+</head>
+
+<body>
+  <div id="overlay" onclick="toggleSidebar()"></div> <!-- Click to close -->
+
+  <!-- Header & Navbar Section -->
+  <header>
+    <nav class="navbar section-content">
+      <a href="#" class="nav-logo">
+        <img src="/assets/images/GourmetCoffee_LOGO_TRANSPARENT.png" alt="Coffee Logo" class="logo-img">
+        <!-- <h2 class="logo-text">☕ Coffee</h2> -->
+      </a>
+      <ul class="nav-menu">
+        <button id="menu-close-button" class="fa-solid fa-xmark"></button>
+
+        <li class="nav-item">
+          <a href="#home" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="public/menu.html" class="nav-link">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a href="#testimonials" class="nav-link">Events</a>
+        </li>
+        <li class="nav-item">
+          <a href="#gallery" class="nav-link">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link">Contact</a>
+        </li>
+      </ul>
+
+      <button id="menu-open-button" class="fa-solid fa-bars"></button>
+    </nav>
+  </header>
+
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <div class="menu-content">
+      <h1>Our Menu</h1>
+      <!-- <p>Enjoy the finest blends, delicious food, and refreshing smoothies made just for you.</p> -->
+    </div>
+  </section>
+
+
+  <!-- Sidebar filter -->
+  <!-- <div class="sidebar" id="sidebar"> -->
+    <!-- <button class="close-btn" onclick="toggleSidebar()"><i class="fa-solid fa-x"></i></button> -->
+    <div class="filters">
+      <select id="coffeeType" onchange="filterMenu()">
+        <option value="all">All</option>
+        <option value="regular">Regular Coffee</option>
+        <option value="large">Large Coffee</option>
+        <option value="food">Food</option>
+        <option value="smoothie">Smoothie</option>
+      </select>
+      <select id="size" onchange="filterMenu()">
+        <option value="all">All Sizes</option>
+        <option value="regular">Regular</option>
+        <option value="large">Large</option>
+      </select>
+      <select id="priceRange" onchange="filterMenu()">
+        <option value="all">All Prices</option>
+        <option value="low">Low to High</option>
+        <option value="high">High to Low</option>
+      </select>
+    </div>
+  <!-- </div> -->
+
+
+
+  <section id="menu">
+    <!-- Menu items will be inserted here dynamically -->
+  </section>
+
+  <script src="/assets/js/menu.js"></script>
+  <script>
+    const menuOpenButton = document.querySelector("#menu-open-button");
+    const menuCloseButton = document.querySelector("#menu-close-button");
+    const navLinks = document.querySelectorAll(".nav-menu .nav-link");
+
+
+    menuOpenButton.addEventListener("click", () => {
+      // Toggle Mobile Menu Visibility
+      document.body.classList.toggle("show-mobile-menu");
+    });
+
+    // Close menu when the close button is clicked
+    menuCloseButton.addEventListener("click", () => menuOpenButton.click());
+
+    // Close menu when the nav link is clicked
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => menuOpenButton.click());
+    });
+  </script>
+</body>
+
+</html>
