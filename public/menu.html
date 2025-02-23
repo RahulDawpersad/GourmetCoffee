@@ -578,6 +578,7 @@
     document.addEventListener('scroll', function () {
       const welcomeSection = document.querySelector('.welcome-section');
       const menuContent = document.querySelector('.menu-content');
+      
 
       // Check if welcome section is in the viewport
       if (isInViewport(welcomeSection)) {
@@ -587,11 +588,15 @@
       }
     });
 
+      
+
     // Trigger the animation on page load as well
     window.addEventListener('load', function () {
       const menuContent = document.querySelector('.menu-content');
       menuContent.classList.add('show-content');    
     });
+
+      menuContent.classList.add('show-content');
 
   </script>
 </body>
