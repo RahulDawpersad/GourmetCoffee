@@ -578,7 +578,6 @@
     document.addEventListener('scroll', function () {
       const welcomeSection = document.querySelector('.welcome-section');
       const menuContent = document.querySelector('.menu-content');
-      const menuItems = document.querySelectorAll('.menu-item'); // Select all menu items
 
       // Check if welcome section is in the viewport
       if (isInViewport(welcomeSection)) {
@@ -586,27 +585,12 @@
       } else {
         menuContent.classList.remove('show-content');
       }
-
-      // Check each menu item and add the animation class when they come into view
-      menuItems.forEach((menuItem) => {
-        if (isInViewport(menuItem)) {
-          menuItem.classList.add('show-item');
-        } else {
-          menuItem.classList.remove('show-item'); // Remove the animation to trigger again
-        }
-      });
     });
 
     // Trigger the animation on page load as well
     window.addEventListener('load', function () {
       const menuContent = document.querySelector('.menu-content');
-      menuContent.classList.add('show-content');
-
-      // Trigger animation for all items initially in view
-      const menuItems = document.querySelectorAll('.menu-item');
-      menuItems.forEach((menuItem) => {
-        menuItem.classList.add('show-item');
-      });
+      menuContent.classList.add('show-content');    
     });
 
   </script>

@@ -274,12 +274,14 @@ header .logo-img {
     padding: 20px;
     border-radius: 8px;
     z-index: 1;
-    overflow: hidden; /* To ensure the background images don't overflow */
-    animation: bg-carousel 15s infinite ease-in-out; /* Faster transition */
-  }
-  
-  /* Dark overlay */
-  .welcome-section::before {
+    overflow: hidden;
+    /* To ensure the background images don't overflow */
+    animation: bg-carousel 15s infinite ease-in-out;
+    /* Faster transition */
+}
+
+/* Dark overlay */
+.welcome-section::before {
     content: "";
     position: absolute;
     top: 0;
@@ -288,81 +290,28 @@ header .logo-img {
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     z-index: -1;
-  }
-  
-  /* Ensure text stays on top of the overlay */
-  .welcome-section h1,
-  .welcome-section p {
-    color: #fff;
-    position: relative;
-    z-index: 2;
-  }
-  
-  /* Text animations */
-  .menu-content {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  
-  .show-content {
-    animation: slideIn 1s ease-out forwards;
-  }
-  
-  /* Adjust text size for responsiveness */
-  .welcome-section .menu-content h1 {
-    color: #f0f0f0;
-    font-size: 4em;
-    font-weight: 500;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  }
-  
-  .welcome-section .menu-content p {
-    font-size: 1em;
-    color: #f0f0f0;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  
-  /* Background Image Carousel Animation */
-  @keyframes bg-carousel {
-    0% {
-      background-image: url('/assets/images/menu-images/coffee-background.png');
-    }
-    33.33% {
-      background-image: url('/assets/images/menu-images/food-background.png');
-    }
-    66.66% {
-      background-image: url('/assets/images/coffee-bg.jpg');
-    }
-    100% {
-      background-image: url('/assets/images/menu-images/coffee-background.png');
-    }
-  }
-  
-  
+}
+
 /* Ensure text stays on top of the overlay */
-/* .welcome-section h1,
+.welcome-section h1,
 .welcome-section p {
     color: #fff;
     position: relative;
     z-index: 2;
-} */
+}
 
-
+/* Text animations */
 .menu-content {
     opacity: 0;
     transform: translateX(-100%);
 }
 
-
-/* Reset animation when scrolling */
 .show-content {
     animation: slideIn 1s ease-out forwards;
 }
 
 /* Adjust text size for responsiveness */
-/* .welcome-section .menu-content h1 {
-    color: #f0f0f0;
+.welcome-section .menu-content h1 {
     font-size: 4em;
     font-weight: 500;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -370,11 +319,30 @@ header .logo-img {
 
 .welcome-section .menu-content p {
     font-size: 1em;
-    color: #f0f0f0;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-} */
+}
 
-/* Text Slide Animation */
+
+/* Background Image Carousel Animation */
+@keyframes bg-carousel {
+    0% {
+        background-image: url('/assets/images/menu-images/coffee-background.png');
+    }
+
+    33.33% {
+        background-image: url('/assets/images/menu-images/food-background.png');
+    }
+
+    66.66% {
+        background-image: url('/assets/images/coffee-bg.jpg');
+    }
+
+    100% {
+        background-image: url('/assets/images/menu-images/coffee-background.png');
+    }
+}
+
+
 
 @media (min-width: 769px) and (max-width: 1240px) {
     .welcome-section {
@@ -438,25 +406,16 @@ header .logo-img {
     align-items: flex-start;
     border-bottom: 1px solid rgb(2, 150, 59);
     padding-bottom: 15px;
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: opacity 1s ease, transform 1s ease;
 }
 
 
 .menu-item h3 {
     margin: 0 0 5px;
     font-size: 22px;
-    /* color: rgb(255, 255, 255); */
-    /* color: #f8d28b; */
     color: #22cf70;
 
 }
 
-.show-item {
-    opacity: 1;
-    transform: translateX(0);
-}
 
 
 .menu-item .size {
@@ -498,15 +457,17 @@ header .logo-img {
     margin-bottom: 20px;
 } */
 /* Filter icon */
-.main-filter-container{
+.main-filter-container {
     display: flex;
     /* align-items: center;
     justify-content: center; */
 }
-.main-filter-container h2{
+
+.main-filter-container h2 {
     color: #fff;
     padding: 25px 20px;
 }
+
 .filter-icon {
     color: #f0f0f0;
     font-size: 24px;
