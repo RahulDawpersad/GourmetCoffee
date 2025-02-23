@@ -438,9 +438,6 @@ header .logo-img {
     align-items: flex-start;
     border-bottom: 1px solid rgb(2, 150, 59);
     padding-bottom: 15px;
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: opacity 1s ease, transform 1s ease;
 }
 
 
@@ -451,11 +448,6 @@ header .logo-img {
     /* color: #f8d28b; */
     color: #22cf70;
 
-}
-
-.show-item {
-    opacity: 1;
-    transform: translateX(0);
 }
 
 
