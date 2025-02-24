@@ -5,10 +5,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Gourmet Coffee Menu</title>
+  <!-- Link to Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <!-- Link to Font Awesome -->
   <script src="https://kit.fontawesome.com/655b3b7e45.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/menu.module.css" />
+  <style>
+    .hidden {
+      margin: 1rem 0;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: 1s ease;
+    }
+
+    .hidden--visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body>
@@ -46,16 +61,44 @@
   </header>
 
   <!-- Welcome Section -->
-  <section class="welcome-section">
+  <div class="hero" id="home">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="/assets/images/coffee-bg.jpg" alt="Gourmet Coffee" class="bg-image">
+          <div class="overlay">
+            <h1><span>Our Menu</span></h1>
+            <p>"Enjoy the finest blends, delicious food, and refreshing smoothies made just for you".</p>
+            <!-- <button class="viewmenubtn">View Menu</button> -->
+            <a href="#menu">
+              <button class="viewmenubtn">View Menu</button>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/coffee-bg.png" alt="Gourmet Coffee" class="bg-image">
+          <div class="overlay">
+            <h1><span>Our Menu</span></h1>
+            <p>"Enjoy the finest blends, delicious food, and refreshing smoothies made just for you".</p>
+            <!-- <button class="viewmenubtn">View Menu</button> -->
+            <a href="#menu">
+              <button class="viewmenubtn">View Menu</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <section class="welcome-section">
     <div class="menu-content">
       <h1>Our Menu</h1>
       <p>Enjoy the finest blends, delicious food, and refreshing smoothies made just for you.</p>
     </div>
-  </section>
+  </section> -->
 
 
   <!-- Filter Icon -->
-  <div class="main-filter-container">
+  <div class="main-filter-container hidden">
     <div class="filter-icon" title="Filter" onclick="toggleFilters()"><i class="fa-solid fa-filter"></i></div>
 
     <!-- Dropdowns for filtering (hidden by default) -->
@@ -91,8 +134,8 @@
     <h2>Filter</h2>
   </div>
 
-  <div class="menu-container">
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="35">
+  <div class="menu-container" id="menu">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="35">
       <div class="menu-items">
         <h3>Red Cappuccino</h3>
         <span class="size">Regular</span>
@@ -101,7 +144,7 @@
       <span class="price">R35</span>
     </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="37">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="37">
       <div>
         <h3>Americano White</h3>
         <span class="size">Regular</span>
@@ -110,7 +153,7 @@
       <span class="price">R37</span>
     </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="34">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="34">
       <div>
         <h3>Americano Black</h3>
         <span class="size">Regular</span>
@@ -119,7 +162,7 @@
       <span class="price">R34</span>
     </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="20">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="20">
       <div>
         <h3>Expresso</h3>
         <span class="size">Regular</span>
@@ -128,7 +171,7 @@
       <span class="price">R20</span>
     </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="22">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="22">
       <div>
         <h3>Double Expresso</h3>
         <span class="size">Regular</span>
@@ -137,7 +180,7 @@
       <span class="price">R22</span>
     </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="22">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="22">
       <div>
         <h3>Expresso Macchiato</h3>
         <span class="size">Regular</span>
@@ -146,7 +189,7 @@
       <span class="price">R22</span>
     </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="34">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="34">
       <div>
         <h3>Hot Chocolate</h3>
         <span class="size">Regular</span>
@@ -155,7 +198,7 @@
       <span class="price">R34</span>
     </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="36">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="36">
       <div>
         <h3>White Hot Chocolate</h3>
         <span class="size">Regular</span>
@@ -164,7 +207,7 @@
       <span class="price">R36</span>
     </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="45">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="45">
       <div>
         <h3>Cafe Mocha</h3>
         <span class="size">Regular</span>
@@ -174,7 +217,7 @@
     </div>
 
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="47">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="47">
       <div>
         <h3>Cafe Mocha White</h3>
         <span class="size">Regular</span>
@@ -183,7 +226,7 @@
       <span class="price">R47</span>
     </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="48">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="48">
       <div>
         <h3>Caramel/Hazelnut/Vanilla Latte</h3>
         <span class="size">Regular</span>
@@ -192,7 +235,7 @@
       <span class="price">R48</span>
     </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="34">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="34">
       <div>
         <h3>Spice Chai Latte</h3>
         <span class="size">Regular</span>
@@ -201,7 +244,7 @@
       <span class="price">R34</span>
     </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="48">
+    <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="48">
       <div>
         <h3>Dirty Spice Chai Latte</h3>
         <span class="size">Regular</span>
@@ -211,7 +254,7 @@
     </div>
 
     <!-- Large Size -->
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="42">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="42">
       <div>
         <h3>Cafe Latte</h3>
         <span class="size">Large</span>
@@ -219,7 +262,7 @@
       </div>
       <span class="price">R42</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="42">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="42">
       <div>
         <h3>Cappuccino</h3>
         <span class="size">Large</span>
@@ -227,7 +270,7 @@
       </div>
       <span class="price">R42</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="39">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="39">
       <div>
         <h3>Red Cappuccino</h3>
         <span class="size">Large</span>
@@ -235,7 +278,7 @@
       </div>
       <span class="price">R39</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="40">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="40">
       <div>
         <h3>Americano White</h3>
         <span class="size">Large</span>
@@ -243,7 +286,7 @@
       </div>
       <span class="price">R40</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="37">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="37">
       <div>
         <h3>Americano Black</h3>
         <span class="size">Large</span>
@@ -251,7 +294,7 @@
       </div>
       <span class="price">R37</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="37">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="37">
       <div>
         <h3>Hot Chocolate</h3>
         <span class="size">Large</span>
@@ -259,7 +302,7 @@
       </div>
       <span class="price">R37</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="38">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="38">
       <div>
         <h3>White Hot Chocolate</h3>
         <span class="size">Large</span>
@@ -267,7 +310,7 @@
       </div>
       <span class="price">R38</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="50">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="50">
       <div>
         <h3>Cafe Mocha</h3>
         <span class="size">Large</span>
@@ -275,7 +318,7 @@
       </div>
       <span class="price">R50</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="50">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="50">
       <div>
         <h3>Cafe Mocha White</h3>
         <span class="size">Large</span>
@@ -283,7 +326,7 @@
       </div>
       <span class="price">R50</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="48">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="48">
       <div>
         <h3>Dark/White Chocolate Freeze</h3>
         <span class="size">Large</span>
@@ -291,7 +334,7 @@
       </div>
       <span class="price">R48</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="55">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="55">
       <div>
         <h3>Caramel/Hazelnut/Vanilla Latte</h3>
         <span class="size">Large</span>
@@ -299,7 +342,7 @@
       </div>
       <span class="price">R55</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="55">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="55">
       <div>
         <h3>Caramel/Hazelnut/Vanilla Iced Latte</h3>
         <span class="size">Large</span>
@@ -307,7 +350,7 @@
       </div>
       <span class="price">R55</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="40">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="40">
       <div>
         <h3>Iced Latte</h3>
         <span class="size">Large</span>
@@ -315,7 +358,7 @@
       </div>
       <span class="price">R40</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="55">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="55">
       <div>
         <h3>Iced Coffee</h3>
         <span class="size">Large</span>
@@ -323,7 +366,7 @@
       </div>
       <span class="price">R55</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="37">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="37">
       <div>
         <h3>Blacked Iced Coffee</h3>
         <span class="size">Large</span>
@@ -331,7 +374,7 @@
       </div>
       <span class="price">R37</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="38">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="38">
       <div>
         <h3>Spice Chai Latte</h3>
         <span class="size">Large</span>
@@ -339,7 +382,7 @@
       </div>
       <span class="price">R38</span>
     </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="55">
+    <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="55">
       <div>
         <h3>Dirty Spice Chai Latte</h3>
         <span class="size">Large</span>
@@ -349,7 +392,7 @@
     </div>
 
     <!-- Food Menu -->
-    <div class="menu-item" data-type="food" data-size="regular" data-price="25">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="25">
       <div>
         <h3>Hot Dog</h3>
         <span class="size">Regular</span>
@@ -357,7 +400,7 @@
       </div>
       <span class="price">R25</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="45">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="45">
       <div>
         <h3>Chicken & Mayo</h3>
         <span class="size">Regular</span>
@@ -365,7 +408,7 @@
       </div>
       <span class="price">R45</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="35">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="35">
       <div>
         <h3>Toasted Cheese</h3>
         <span class="size">Regular</span>
@@ -373,7 +416,7 @@
       </div>
       <span class="price">R35</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="55">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="55">
       <div>
         <h3>Curry Mince</h3>
         <span class="size">Regular</span>
@@ -381,7 +424,7 @@
       </div>
       <span class="price">R55</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="50">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="50">
       <div>
         <h3>Chicken Wrap</h3>
         <span class="size">Regular</span>
@@ -389,7 +432,7 @@
       </div>
       <span class="price">R50</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="20">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="20">
       <div>
         <h3>Soya Vienna</h3>
         <span class="size">Regular</span>
@@ -397,7 +440,7 @@
       </div>
       <span class="price">R20</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="70">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="70">
       <div>
         <h3>Burger & Chips</h3>
         <span class="size">Regular</span>
@@ -405,7 +448,7 @@
       </div>
       <span class="price">R70</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="50">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="50">
       <div>
         <h3>Chicken Strips & Chips</h3>
         <span class="size">Regular</span>
@@ -413,7 +456,7 @@
       </div>
       <span class="price">R50</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="25">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="25">
       <div>
         <h3>Hot Chips</h3>
         <span class="size">Regular</span>
@@ -421,7 +464,7 @@
       </div>
       <span class="price">R25</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="35">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="35">
       <div>
         <h3>Chip Sandwich</h3>
         <span class="size">Regular</span>
@@ -429,7 +472,7 @@
       </div>
       <span class="price">R35</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="25">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="25">
       <div>
         <h3>Ice Cream 125ml</h3>
         <span class="size">Regular</span>
@@ -437,7 +480,7 @@
       </div>
       <span class="price">R25</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="60">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="60">
       <div>
         <h3>Veg Burger & Chips</h3>
         <span class="size">Regular</span>
@@ -445,7 +488,7 @@
       </div>
       <span class="price">R60</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="90">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="90">
       <div>
         <h3>Chicken Schnitzel & Cheesy Chips</h3>
         <span class="size">Regular</span>
@@ -453,7 +496,7 @@
       </div>
       <span class="price">R90</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="50">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="50">
       <div>
         <h3>Lamb Macon, Egg & Cheese Sandwich</h3>
         <span class="size">Regular</span>
@@ -461,7 +504,7 @@
       </div>
       <span class="price">R50</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="70">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="70">
       <div>
         <h3>Mediterranean Bowl</h3>
         <span class="size">Regular</span>
@@ -469,7 +512,7 @@
       </div>
       <span class="price">R70</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="20">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="20">
       <div>
         <h3>Gluten Free Bread</h3>
         <span class="size">Regular</span>
@@ -477,7 +520,7 @@
       </div>
       <span class="price">R20</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="35">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="35">
       <div>
         <h3>Egg & Cheese Bagel</h3>
         <span class="size">Regular</span>
@@ -485,7 +528,7 @@
       </div>
       <span class="price">R35</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="5">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="5">
       <div>
         <h3>Extra Cheese Slice</h3>
         <span class="size">Regular</span>
@@ -493,7 +536,7 @@
       </div>
       <span class="price">R5</span>
     </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="10">
+    <div class="menu-item hidden" data-type="food" data-size="regular" data-price="10">
       <div>
         <h3>Extra Cheese</h3>
         <span class="size">Regular</span>
@@ -503,7 +546,7 @@
     </div>
 
     <!-- Smoothie Menu -->
-    <div class="menu-item" data-type="smoothie" data-size="regular" data-price="35">
+    <div class="menu-item hidden" data-type="smoothie" data-size="regular" data-price="35">
       <div>
         <h3>Lemonade Cooler</h3>
         <span class="size">Regular</span>
@@ -511,7 +554,7 @@
       </div>
       <span class="price">R35</span>
     </div>
-    <div class="menu-item" data-type="smoothie" data-size="regular" data-price="55">
+    <div class="menu-item hidden" data-type="smoothie" data-size="regular" data-price="55">
       <div>
         <h3>Health Smoothies</h3>
         <span class="size">Regular</span>
@@ -519,7 +562,7 @@
       </div>
       <span class="price">R55</span>
     </div>
-    <div class="menu-item" data-type="smoothie" data-size="regular" data-price="55">
+    <div class="menu-item hidden" data-type="smoothie" data-size="regular" data-price="55">
       <div>
         <h3>Blueberry Smoothie</h3>
         <span class="size">Regular</span>
@@ -527,7 +570,7 @@
       </div>
       <span class="price">R55</span>
     </div>
-    <div class="menu-item" data-type="smoothie" data-size="regular" data-price="55">
+    <div class="menu-item hidden" data-type="smoothie" data-size="regular" data-price="55">
       <div>
         <h3>Peanut Butter Smoothie</h3>
         <span class="size">Regular</span>
@@ -535,7 +578,7 @@
       </div>
       <span class="price">R55</span>
     </div>
-    <div class="menu-item" data-type="smoothie" data-size="regular" data-price="55">
+    <div class="menu-item hidden" data-type="smoothie" data-size="regular" data-price="55">
       <div>
         <h3>Granola Smoothie</h3>
         <span class="size">Regular</span>
@@ -548,6 +591,8 @@
 
 
   <script src="/assets/js/menu.js"></script>
+  <!-- Link to Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     const menuOpenButton = document.querySelector("#menu-open-button");
     const menuCloseButton = document.querySelector("#menu-close-button");
@@ -566,19 +611,43 @@
       link.addEventListener("click", () => menuOpenButton.click());
     });
 
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      effect: "fade", // Enables fade transition
+      fadeEffect: {
+        crossFade: true, // Smooth transition between slides
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+
+    });
 
 
 
+
+
+
+    // function isInViewport(element) {
+    //   const rect = element.getBoundingClientRect();
+    //   return rect.top >= 0 && rect.bottom <= window.innerHeight;
+    // }
     function isInViewport(element) {
       const rect = element.getBoundingClientRect();
-      return rect.top >= 0 && rect.bottom <= window.innerHeight;
+      return rect.top < window.innerHeight && rect.bottom >= 0;
     }
+
 
     // Detect when the section and menu items come into view
     document.addEventListener('scroll', function () {
       const welcomeSection = document.querySelector('.welcome-section');
       const menuContent = document.querySelector('.menu-content');
-      
+
 
       // Check if welcome section is in the viewport
       if (isInViewport(welcomeSection)) {
@@ -588,15 +657,15 @@
       }
     });
 
-      
+
 
     // Trigger the animation on page load as well
     window.addEventListener('load', function () {
       const menuContent = document.querySelector('.menu-content');
-      menuContent.classList.add('show-content');    
+      menuContent.classList.add('show-content');
     });
 
-      menuContent.classList.add('show-content');
+    menuContent.classList.add('show-content');
 
   </script>
 </body>

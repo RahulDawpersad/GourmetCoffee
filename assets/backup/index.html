@@ -12,6 +12,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/css/styles.module.css">
 </head>
+<style>
+    .hidden {
+        margin: 1rem 0;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: 1s ease;
+    }
+
+    .hidden--visible {
+        transform: translateY(0);
+        opacity: 1;
+    }
+</style>
 
 <body>
 
@@ -37,9 +50,9 @@
                 <li class="nav-item">
                     <a href="#testimonials" class="nav-link">Events</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#gallery" class="nav-link">Gallery</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="#contact" class="nav-link">Contact</a>
                 </li>
@@ -52,25 +65,23 @@
     <!-- Main Section -->
     <main>
         <div class="hero" id="home">
-            <div class="slides">
-                <div class="slide active">
-                    <video autoplay muted loop playsinline class="bg-video">
-                        <source src="assets/videos/video2.mp4" type="video/mp4">
-                    </video>
-                    <div class="overlay">
-                        <h1>Welcome To <span>GOURMET COFFEE</span></h1>
-                        <p>"The Perfect Coffee in the Heart of Durban".</p>
-                        <button class="viewmenubtn">View Menu</button>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/coffee-bg.jpg" alt="Gourmet Coffee" class="bg-image">
+                        <div class="overlay">
+                            <h1>Welcome To <span>GOURMET COFFEE</span></h1>
+                            <p>"The Perfect Coffee in the Heart of Durban".</p>
+                            <button class="viewmenubtn ">View Menu</button>
+                        </div>
                     </div>
-                </div>
-                <div class="slide">
-                    <video autoplay muted loop playsinline class="bg-video">
-                        <source src="assets/videos/video1.mp4" type="video/mp4">
-                    </video>
-                    <div class="overlay">
-                        <h1>Welcome To <span>GOURMET COFFEE</span></h1>
-                        <p>"The Perfect Coffee in the Heart of Durban".</p>
-                        <button class="viewmenubtn">View Menu</button>
+                    <div class="swiper-slide">
+                        <img src="assets/images/coffee-bg.png" alt="Gourmet Coffee" class="bg-image">
+                        <div class="overlay">
+                            <h1>Welcome To <span>GOURMET COFFEE</span></h1>
+                            <p>"The Perfect Coffee in the Heart of Durban".</p>
+                            <button class="viewmenubtn">View Menu</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -79,33 +90,35 @@
         <!-- About Section -->
         <section class="about-section" id="about">
             <div class="section-content">
-                <div class="about-image-wrapper">
-                    <img src="assets/images/vendor.jpeg" title="About Image" alt="About Image" class="about-image">
+                <div class="about-image-wrapper hidden">
+                    <img src="assets/images/GourmetCoffee_LOGO_TRANSPARENT.png" title="About Image" alt="About Image"
+                        class="about-image">
                 </div>
                 <div class="about-details">
-                    <h2 class="section-title">About Us</h2>
-                    <p class="text"><span>Gourmet Coffee</span> was established in 2024 and serves specialty coffee
+                    <h2 class="section-title hidden">About Us</h2>
+                    <p class="text hidden"><span>Gourmet Coffee</span> was established in 2024 and serves specialty
+                        coffee
                         drinks and light meals. We are based in one of the most beautiful places in Durban, which is the
                         Durban Botanic Garden. An ideal spot to unwind, catch up with friends or enjoy some quiet time.
                     </p>
                     <div class="social-link-list">
-                        <a href="#" title="Gourmet Coffee Facebook Account" class="social-link"><i
+                        <a href="#" title="Gourmet Coffee Facebook Account" class="social-link hidden"><i
                                 class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.instagram.com/gourmet_coffeedbg/?igsh=MTR2d3dyaGw1bGhsMQ%3D%3D#"
-                            class="social-link" title="Gourmet Coffee Instagram Account" target="_blank"><i
+                            class="social-link hidden" title="Gourmet Coffee Instagram Account" target="_blank"><i
                                 class="fa-brands fa-instagram"></i></a>
-                        <a href="https://wa.me/+27740286936" title="Whatsapp Gourmet Coffee" class="social-link"><i
-                                class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://wa.me/+27740286936" title="Whatsapp Gourmet Coffee"
+                            class="social-link hidden"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                     <div class="operating-hours">
-                        <h3 class="hours-title">Opening Hours</h3>
+                        <h3 class="hours-title hidden">Opening Hours</h3>
                         <div class="hours-details">
-                            <p>Monday – Friday: 08:00 - 22:00</p>
-                            <hr>
-                            <p>Saturday: 08:00 - 22:00</p>
-                            <hr>
-                            <p>Sunday: 08:00 - 22:00</p>
-                            <hr>
+                            <p class="hidden">Monday – Friday: 08:30 AM - 16:00 PM</p>
+                            <hr class="hidden">
+                            <p class="hidden">Saturday: 08:30 AM - 16:30 PM</p>
+                            <hr class="hidden">
+                            <p class="hidden">Sunday: 08:30 AM - 16:30 PM</p>
+                            <hr class="hidden">
                         </div>
                     </div>
                 </div>
@@ -113,41 +126,42 @@
         </section>
 
         <!-- Catering Section -->
-        <section class="catering-section">
-            <div class="container">
-                <h2 class="title section-title">We Cater For</h2>
-                <p class="subtitle text">Make your events special with our premium coffee and catering services.</p>
-                <div class="catering-grid">
-                    <div class="catering-card">
+        <section class="event-section">
+            <div class="content">
+                <div class="content-text">
+                    <h2 class="section-title hidden">We Cater For</h2>
+                    <p class="text hidden"> "Make your events special with our premium coffee and catering services".
+                    </p>
+                </div>
+                <div class="event-list">
+                    <div class="event-card hidden" data-text="Corporate Events">
                         <i class="fas fa-briefcase"></i>
                         <h3>Corporate Events</h3>
                     </div>
-                    <div class="catering-card">
+                    <div class="event-card hidden" data-text="Wedding Functions">
                         <i class="fas fa-ring"></i>
                         <h3>Wedding Functions</h3>
                     </div>
-                    <div class="catering-card">
+                    <div class="event-card hidden" data-text="Birthday Parties">
                         <i class="fas fa-birthday-cake"></i>
                         <h3>Birthday Parties</h3>
                     </div>
                 </div>
-
             </div>
         </section>
-
 
         <!-- Talk to us section -->
         <section class="news-letter" id="News-letter">
             <div class="news">
                 <div class="container">
-                    <h1 class="news-heading section-title">Elevate Your Event with <br /> Gourmet Coffee</h1>
+                    <h1 class="news-heading section-title hidden">Elevate Your Event with <br /> Gourmet Coffee</h1>
                     <div class="form-container"></div>
-                    <p class="des how-de">
+                    <p class="des how-de hidden">
                         "Talk to us about bringing Gourmet Coffee to your event".
                     </p>
                 </div>
                 <a href="mailto:natashadadoo@yahoo.com?subject=Gourmet%20Coffee%20Event%20Inquiry&body=Hello,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20bringing%20gourmet%20coffee%20to%20my%20event.%0D%0A%0D%0ARegards"
-                    class="btn">
+                    class="btn hidden">
                     Email Us
                 </a>
 
@@ -193,33 +207,6 @@
                 </ul>
             </div>
         </section>
-
-        <!-- Gallery Section -->
-        <div class="gallery-section" id="gallery">
-            <h2 class="section-title">Gallery </h2>
-            <div class="section-content">
-                <ul class="gallery-list">
-                    <li class="gallery-item">
-                        <img src="assets/images/gallery-1.jpg" alt="Gallery One" class="gallery-image">
-                    </li>
-                    <li class="gallery-item">
-                        <img src="assets/images/gallery-2.jpg" alt="Gallery Two" class="gallery-image">
-                    </li>
-                    <li class="gallery-item">
-                        <img src="assets/images/gallery-3.jpg" alt="Gallery Three" class="gallery-image">
-                    </li>
-                    <li class="gallery-item">
-                        <img src="assets/images/gallery-4.jpg" alt="Gallery Four" class="gallery-image">
-                    </li>
-                    <li class="gallery-item">
-                        <img src="assets/images/gallery-5.jpg" alt="Gallery Five" class="gallery-image">
-                    </li>
-                    <li class="gallery-item">
-                        <img src="assets/images/gallery-6.jpg" alt="Gallery Six" class="gallery-image">
-                    </li>
-                </ul>
-            </div>
-        </div>
 
         <!-- Footer Section -->
         <footer class="footer-section">
@@ -291,6 +278,51 @@
             index = (index + 1) % slides.length;
             slides[index].classList.add("active");
         }
+
+        document.querySelectorAll('.event-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+
+        // function animateOverlay() {
+        //     document.querySelectorAll(".overlay").forEach(overlay => {
+        //         if (window.scrollY === 0) {
+        //             overlay.classList.remove("visible");
+        //             setTimeout(() => {
+        //                 overlay.classList.add("visible");
+        //             }, 100);
+        //         }
+        //     });
+        // }
+
+        document.addEventListener("scroll", function () {
+            const overlay = document.querySelectorAll(".overlay");
+
+            overlay.forEach(function (element) {
+                if (isInView(element)) {
+                    element.classList.add("visible");  // Add the 'visible' class to trigger the animation
+                } else {
+                    element.classList.remove("visible");  // Remove the 'visible' class when it's out of view
+                }
+            });
+        });
+
+        function isInView(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.top <= window.innerHeight
+            );
+        }
+
+
+
+
 
         setInterval(nextSlide, 5000); // Change slide every 5 seconds
 

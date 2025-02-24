@@ -3,6 +3,28 @@ const menuSelect = document.getElementById('menu-select');
 const sizeSelect = document.getElementById('size-select');
 // const priceSelect = document.getElementById('price-select');
 const menuItems = document.querySelectorAll('.menu-item');
+const paragraphs = document.querySelectorAll(".hidden");
+
+
+// Text Scroll Animation
+document.addEventListener("scroll", function () {
+    paragraphs.forEach((paragraph) => {
+        if (isInView(paragraph)) {
+            paragraph.classList.add("hidden--visible");
+        } else {
+            paragraph.classList.remove("hidden--visible");
+        }
+    });
+});
+
+function isInView(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.bottom > 0 &&
+        rect.top < (window.innerHeight - 150 || document.documentElement.clientHeight - 150)
+    );
+}
+// End of Text Animation
 
 // Function to filter menu based on selection
 function filterMenu() {
@@ -50,3 +72,4 @@ function toggleFilters() {
     const filterContainer = document.getElementById('filters-container');
     filterContainer.classList.toggle('show');
 }
+

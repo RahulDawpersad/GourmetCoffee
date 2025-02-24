@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            max-width: 65vw;
+            min-height: 100vh;
+            margin: auto;
+            color: #fff;
+            background: #252525;
+            font-family: serif;
+            text-align: center;
+        }
+
+        .header {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section {
+            height: 100vh;
+            padding: 1rem;
+        }
+
+        .hidden {
+            margin: 1rem 0;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: 1s ease;
+        }
+
+        .hidden--visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Welcome To DesignX</h1>
+    </header>
+    <section class="section">
+        <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nemo
+            veritatis quidem molestiae totam exercitationem quam natus deleniti. Ipsam laborum ad rem optio sed enim
+            fugit fuga asperiores aliquid dicta.</p>
+        <p class="hidden">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure unde, odit natus dignissimos tempore nisi
+            voluptas qui repudiandae autem exercitationem quia, labore temporibus. Delectus recusandae harum corrupti
+            velit dolor veritatis excepturi aliquam, maxime sed adipisci et quasi dolores ipsa porro rem assumenda, quae
+            libero officiis doloribus. Doloribus eaque dolores in.
+        </p>
+        <p class="hidden">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure unde, odit natus dignissimos tempore nisi
+            voluptas qui repudiandae autem exercitationem quia, labore temporibus. Delectus recusandae harum corrupti
+            velit dolor veritatis excepturi aliquam, maxime sed adipisci et quasi dolores ipsa porro rem assumenda, quae
+            libero officiis doloribus. Doloribus eaque dolores in.
+        </p>
+        <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nemo
+            veritatis quidem molestiae totam exercitationem quam natus deleniti. Ipsam laborum ad rem optio sed enim
+            fugit fuga asperiores aliquid dicta.</p>
+        <p class="hidden">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure unde, odit natus dignissimos tempore nisi
+            voluptas qui repudiandae autem exercitationem quia, labore temporibus. Delectus recusandae harum corrupti
+            velit dolor veritatis excepturi aliquam, maxime sed adipisci et quasi dolores ipsa porro rem assumenda, quae
+            libero officiis doloribus. Doloribus eaque dolores in.
+        </p>
+        <p class="hidden">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure unde, odit natus dignissimos tempore nisi
+            voluptas qui repudiandae autem exercitationem quia, labore temporibus. Delectus recusandae harum corrupti
+            velit dolor veritatis excepturi aliquam, maxime sed adipisci et quasi dolores ipsa porro rem assumenda, quae
+            libero officiis doloribus. Doloribus eaque dolores in.
+        </p>
+        <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nemo
+            veritatis quidem molestiae totam exercitationem quam natus deleniti. Ipsam laborum ad rem optio sed enim
+            fugit fuga asperiores aliquid dicta.</p>
+        <p class="hidden">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure unde, odit natus dignissimos tempore nisi
+            voluptas qui repudiandae autem exercitationem quia, labore temporibus. Delectus recusandae harum corrupti
+            velit dolor veritatis excepturi aliquam, maxime sed adipisci et quasi dolores ipsa porro rem assumenda, quae
+            libero officiis doloribus. Doloribus eaque dolores in.
+        </p>
+        <p class="hidden">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure unde, odit natus dignissimos tempore nisi
+            voluptas qui repudiandae autem exercitationem quia, labore temporibus. Delectus recusandae harum corrupti
+            velit dolor veritatis excepturi aliquam, maxime sed adipisci et quasi dolores ipsa porro rem assumenda, quae
+            libero officiis doloribus. Doloribus eaque dolores in.
+        </p>
+        <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nemo
+            veritatis quidem molestiae totam exercitationem quam natus deleniti. Ipsam laborum ad rem optio sed enim
+            fugit fuga asperiores aliquid dicta.</p>
+        <p class="hidden">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure unde, odit natus dignissimos tempore nisi
+            voluptas qui repudiandae autem exercitationem quia, labore temporibus. Delectus recusandae harum corrupti
+            velit dolor veritatis excepturi aliquam, maxime sed adipisci et quasi dolores ipsa porro rem assumenda, quae
+            libero officiis doloribus. Doloribus eaque dolores in.
+        </p>
+        <p class="hidden">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure unde, odit natus dignissimos tempore nisi
+            voluptas qui repudiandae autem exercitationem quia, labore temporibus. Delectus recusandae harum corrupti
+            velit dolor veritatis excepturi aliquam, maxime sed adipisci et quasi dolores ipsa porro rem assumenda, quae
+            libero officiis doloribus. Doloribus eaque dolores in.
+        </p>
+    </section>
+
+    <script>
+        const paragraphs = document.querySelectorAll(".hidden");
+
+        document.addEventListener("scroll", function () {
+            paragraphs.forEach((paragraph) => {
+                if (isInView(paragraph)) {
+                    paragraph.classList.add("hidden--visible");
+                } else {
+                    paragraph.classList.remove("hidden--visible");
+                }
+            });
+        });
+
+        function isInView(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.bottom > 0 &&
+                rect.top < (window.innerHeight - 150 || document.documentElement.clientHeight - 150)
+            );
+        }
+    </script>
+</body>
+
+</html>

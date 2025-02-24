@@ -258,7 +258,130 @@ header .logo-img {
 
 
 /* Hero Welcome Section */
-.welcome-section {
+/* Hero Section Styling */
+.hero {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    position: relative;
+    text-align: center;
+}
+
+.bg-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    text-align: center;
+    color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+
+/* Slide-in animation from the left */
+@keyframes slideIn {
+    0% {
+        transform: translate(-100%, -60%);
+        /* Start off-screen to the left */
+        opacity: 0;
+        /* Fully invisible */
+    }
+
+    100% {
+        transform: translate(-50%, -60%);
+        /* End at the center */
+        opacity: 1;
+        /* Fully visible */
+    }
+}
+
+.overlay.visible {
+    animation: slideIn 1s forwards;
+}
+
+.overlay h1 {
+    margin-bottom: 20px;
+    font-size: 3em;
+}
+
+.overlay p {
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    font-style: oblique;
+}
+
+@media (max-width: 1240px) {
+    .overlay h1 {
+        font-size: 2em;
+    }
+
+    .overlay p {
+        font-size: 1.5em;
+    }
+}
+
+.viewmenubtn {
+    padding: 12px 24px;
+    background-color: #065A2C;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.viewmenubtn:hover {
+    background-color: #3a9b5e;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #3a9b5e;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .overlay {
+        width: 90%;
+        font-size: 14px;
+        padding: 30px;
+    }
+
+    .overlay h1 {
+        font-size: 24px;
+    }
+
+    .overlay p {
+        font-size: 16px;
+    }
+
+    .viewmenubtn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+/* .welcome-section {
     position: relative;
     text-align: center;
     background: url('/assets/images/menu-images/coffee-background.png') no-repeat center center;
@@ -275,12 +398,9 @@ header .logo-img {
     border-radius: 8px;
     z-index: 1;
     overflow: hidden;
-    /* To ensure the background images don't overflow */
     animation: bg-carousel 15s infinite ease-in-out;
-    /* Faster transition */
 }
 
-/* Dark overlay */
 .welcome-section::before {
     content: "";
     position: absolute;
@@ -292,7 +412,6 @@ header .logo-img {
     z-index: -1;
 }
 
-/* Ensure text stays on top of the overlay */
 .welcome-section h1,
 .welcome-section p {
     color: #fff;
@@ -300,7 +419,6 @@ header .logo-img {
     z-index: 2;
 }
 
-/* Text animations */
 .menu-content {
     opacity: 0;
     transform: translateX(-100%);
@@ -310,7 +428,6 @@ header .logo-img {
     animation: slideIn 1s ease-out forwards;
 }
 
-/* Adjust text size for responsiveness */
 .welcome-section .menu-content h1 {
     font-size: 4em;
     font-weight: 500;
@@ -323,7 +440,6 @@ header .logo-img {
 }
 
 
-/* Background Image Carousel Animation */
 @keyframes bg-carousel {
     0% {
         background-image: url('/assets/images/menu-images/coffee-background.png');
@@ -347,10 +463,8 @@ header .logo-img {
 @media (min-width: 769px) and (max-width: 1240px) {
     .welcome-section {
         height: 50vh;
-        /* Larger section for tablets */
         background-size: cover;
         background-position: center center;
-        /* padding: 80px; */
     }
 
     .welcome-section .menu-content h1 {
@@ -383,7 +497,7 @@ header .logo-img {
         font-size: 16px;
         color: #f0f0f0;
     }
-}
+} */
 
 /* Close button in sidebar */
 .menu-container {
@@ -415,6 +529,7 @@ header .logo-img {
     color: #22cf70;
 
 }
+
 .menu-item .size {
     font-style: oblique;
 }
@@ -562,7 +677,7 @@ select:focus {
         font-size: 2rem;
     }
 
-    #menu {
+    /* #menu {
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         gap: 20px;
     }
@@ -573,7 +688,7 @@ select:focus {
 
     .menu-item img {
         height: 180px;
-    }
+    } */
 }
 
 @media (max-width: 480px) {

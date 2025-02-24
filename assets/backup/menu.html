@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Gourmet Coffee Menu</title>
+  <!-- Link to Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <!-- Link to Font Awesome -->
   <script src="https://kit.fontawesome.com/655b3b7e45.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -46,12 +48,40 @@
   </header>
 
   <!-- Welcome Section -->
-  <section class="welcome-section">
+  <div class="hero" id="home">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="/assets/images/coffee-bg.jpg" alt="Gourmet Coffee" class="bg-image">
+          <div class="overlay">
+            <h1><span>Our Menu</span></h1>
+            <p>"Enjoy the finest blends, delicious food, and refreshing smoothies made just for you".</p>
+            <!-- <button class="viewmenubtn">View Menu</button> -->
+            <a href="#menu">
+              <button class="viewmenubtn">View Menu</button>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/coffee-bg.png" alt="Gourmet Coffee" class="bg-image">
+          <div class="overlay">
+            <h1><span>Our Menu</span></h1>
+            <p>"Enjoy the finest blends, delicious food, and refreshing smoothies made just for you".</p>
+            <!-- <button class="viewmenubtn">View Menu</button> -->
+            <a href="#menu">
+              <button class="viewmenubtn">View Menu</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <section class="welcome-section">
     <div class="menu-content">
       <h1>Our Menu</h1>
       <p>Enjoy the finest blends, delicious food, and refreshing smoothies made just for you.</p>
     </div>
-  </section>
+  </section> -->
 
 
   <!-- Filter Icon -->
@@ -91,7 +121,7 @@
     <h2>Filter</h2>
   </div>
 
-  <div class="menu-container">
+  <div class="menu-container" id="menu">
     <div class="menu-item" data-type="coffee" data-size="regular" data-price="35">
       <div class="menu-items">
         <h3>Red Cappuccino</h3>
@@ -548,6 +578,8 @@
 
 
   <script src="/assets/js/menu.js"></script>
+  <!-- Link to Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     const menuOpenButton = document.querySelector("#menu-open-button");
     const menuCloseButton = document.querySelector("#menu-close-button");
@@ -566,19 +598,43 @@
       link.addEventListener("click", () => menuOpenButton.click());
     });
 
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      effect: "fade", // Enables fade transition
+      fadeEffect: {
+        crossFade: true, // Smooth transition between slides
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+
+    });
 
 
 
+
+
+
+    // function isInViewport(element) {
+    //   const rect = element.getBoundingClientRect();
+    //   return rect.top >= 0 && rect.bottom <= window.innerHeight;
+    // }
     function isInViewport(element) {
       const rect = element.getBoundingClientRect();
-      return rect.top >= 0 && rect.bottom <= window.innerHeight;
+      return rect.top < window.innerHeight && rect.bottom >= 0;
     }
+
 
     // Detect when the section and menu items come into view
     document.addEventListener('scroll', function () {
       const welcomeSection = document.querySelector('.welcome-section');
       const menuContent = document.querySelector('.menu-content');
-      const menuItems = document.querySelectorAll('.menu-item'); // Select all menu items
+
 
       // Check if welcome section is in the viewport
       if (isInViewport(welcomeSection)) {
@@ -586,28 +642,17 @@
       } else {
         menuContent.classList.remove('show-content');
       }
-
-      // Check each menu item and add the animation class when they come into view
-      menuItems.forEach((menuItem) => {
-        if (isInViewport(menuItem)) {
-          menuItem.classList.add('show-item');
-        } else {
-          menuItem.classList.remove('show-item'); // Remove the animation to trigger again
-        }
-      });
     });
+
+
 
     // Trigger the animation on page load as well
     window.addEventListener('load', function () {
       const menuContent = document.querySelector('.menu-content');
       menuContent.classList.add('show-content');
-
-      // Trigger animation for all items initially in view
-      const menuItems = document.querySelectorAll('.menu-item');
-      menuItems.forEach((menuItem) => {
-        menuItem.classList.add('show-item');
-      });
     });
+
+    menuContent.classList.add('show-content');
 
   </script>
 </body>
