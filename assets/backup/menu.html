@@ -11,6 +11,19 @@
   <script src="https://kit.fontawesome.com/655b3b7e45.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/menu.module.css" />
+  <style>
+    .hidden {
+      margin: 1rem 0;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: 1s ease;
+    }
+
+    .hidden--visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body>
@@ -85,7 +98,7 @@
 
 
   <!-- Filter Icon -->
-  <div class="main-filter-container">
+  <div class="main-filter-container hidden">
     <div class="filter-icon" title="Filter" onclick="toggleFilters()"><i class="fa-solid fa-filter"></i></div>
 
     <!-- Dropdowns for filtering (hidden by default) -->
@@ -598,37 +611,13 @@
       link.addEventListener("click", () => menuOpenButton.click());
     });
 
-    var swiper = new Swiper(".mySwiper", {
-      loop: true,
-      effect: "fade", // Enables fade transition
-      fadeEffect: {
-        crossFade: true, // Smooth transition between slides
-      },
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-
-    });
 
 
 
-
-
-
-    // function isInViewport(element) {
-    //   const rect = element.getBoundingClientRect();
-    //   return rect.top >= 0 && rect.bottom <= window.innerHeight;
-    // }
     function isInViewport(element) {
       const rect = element.getBoundingClientRect();
-      return rect.top < window.innerHeight && rect.bottom >= 0;
+      return rect.top >= 0 && rect.bottom <= window.innerHeight;
     }
-
 
     // Detect when the section and menu items come into view
     document.addEventListener('scroll', function () {

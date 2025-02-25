@@ -5,13 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Gourmet Coffee Menu</title>
-  <!-- Link to Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <!-- Link to Font Awesome -->
   <script src="https://kit.fontawesome.com/655b3b7e45.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/menu.module.css" />
+    <!-- Link to Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
+    /* End of Menu Styling */
     .hidden {
       margin: 1rem 0;
       transform: translateY(20px);
@@ -22,6 +23,126 @@
     .hidden--visible {
       transform: translateY(0);
       opacity: 1;
+    }
+
+    /* Menu Styling */
+    .menu {
+      max-width: 95%;
+      margin: auto;
+      /* background: rgba(255, 255, 255, 0.1); */
+      padding: 15px;
+      border-radius: 5px;
+      /* box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); */
+    }
+
+    .menu h2 {
+      color: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th,
+    td {
+      color: #fff;
+      padding: 6px;
+      text-align: left;
+      font-size: 0.95em;
+    }
+
+    th {
+      color: #22cf70;
+      font-weight: 600;
+    }
+
+    .drink {
+      visibility: hidden;
+    }
+
+    tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    tr:last-child {
+      border-bottom: none;
+    }
+
+    tr:hover {
+      /* background: rgba(255, 255, 255, 0.1); */
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .dash {
+      padding: 0.8em;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+    }
+
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .table-title {
+      font-size: 1.4em;
+      font-weight: 600;
+      font-style: oblique;
+      color: #02bb55;
+      text-align: center;
+      /* margin-bottom: 10px; */
+      margin-top: 2em;
+    }
+
+    .coffee-container,
+    .food-container,
+    .smoothie-container {
+      margin: 1.3em 0;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 884px) {
+
+      th,
+      td {
+        font-size: 0.9em;
+        padding: 5px;
+      }
+
+      h1 {
+        font-size: 1.4em;
+      }
+
+      .menu {
+        padding: 12px;
+        /* max-width: 100%; */
+      }
+    }
+
+    /* Desktop Adjustments */
+    @media (min-width: 601px) {
+      .menu {
+        max-width: 50%;
+        /* Reduce width for a tighter layout */
+        padding: 20px;
+      }
+
+      th,
+      td {
+        font-size: 1em;
+        padding: 8px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
     }
   </style>
 </head>
@@ -51,9 +172,6 @@
         <li class="nav-item">
           <a href="#testimonials" class="nav-link">Events</a>
         </li>
-        <!-- <li class="nav-item">
-          <a href="#contact" class="nav-link">Contact</a>
-        </li> -->
       </ul>
 
       <button id="menu-open-button" class="fa-solid fa-bars"></button>
@@ -69,7 +187,6 @@
           <div class="overlay">
             <h1><span>Our Menu</span></h1>
             <p>"Enjoy the finest blends, delicious food, and refreshing smoothies made just for you".</p>
-            <!-- <button class="viewmenubtn">View Menu</button> -->
             <a href="#menu">
               <button class="viewmenubtn">View Menu</button>
             </a>
@@ -80,7 +197,6 @@
           <div class="overlay">
             <h1><span>Our Menu</span></h1>
             <p>"Enjoy the finest blends, delicious food, and refreshing smoothies made just for you".</p>
-            <!-- <button class="viewmenubtn">View Menu</button> -->
             <a href="#menu">
               <button class="viewmenubtn">View Menu</button>
             </a>
@@ -89,514 +205,336 @@
       </div>
     </div>
   </div>
-  <!-- <section class="welcome-section">
-    <div class="menu-content">
-      <h1>Our Menu</h1>
-      <p>Enjoy the finest blends, delicious food, and refreshing smoothies made just for you.</p>
+
+
+
+  <!-- <div class="main-filter-container hidden"> -->
+  <!-- Menu Section -->
+  <!-- <section class="menu-section" id="menu"> -->
+  <div class="menu" id="menu">
+    <!-- <h2 class="hidden">Our Menu</h2> -->
+
+    <div class="table-container">
+      <table>
+        <tbody>
+          <tr class="fade-in">
+            <td>Espresso</td>
+            <td>R20</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Double Espresso</td>
+            <td>R22</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Espresso Machiato</td>
+            <td>R22</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Flat White</td>
+            <td>R39</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Babyccino</td>
+            <td>R15</td>
+          </tr>
+          <tr>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </section> -->
 
-
-  <!-- Filter Icon -->
-  <div class="main-filter-container hidden">
-    <div class="filter-icon" title="Filter" onclick="toggleFilters()"><i class="fa-solid fa-filter"></i></div>
-
-    <!-- Dropdowns for filtering (hidden by default) -->
-    <div class="filters-container" id="filters-container">
-      <button class="close-filter" onclick="toggleFilters()">×</button>
-
-      <select id="menu-select">
-        <option value="all">All</option>
-        <option value="coffee">Coffee</option>
-        <option value="food">Food</option>
-        <option value="smoothie">Smoothie</option>
-      </select>
-
-      <select id="size-select">
-        <!-- <option value="all">All</option> -->
-        <option value="regular">Regular</option>
-        <option value="large">Large</option>
-      </select>
-      <!-- 
-        <select id="price-select"  id="priceRange">
-            <option value="all">All</option>
-            <option value="low">Low Price</option>
-            <option value="high">High Price</option>
-        </select> -->
-
-
-      <!-- <select id="priceRange">
-            <option value="all">All</option>
-            <option value="low">Low Price</option>
-            <option value="high">High Price</option>
-        </select> -->
+    <div class="table-container coffee-container">
+      <h2 class="table-title">Coffee</h2>
+      <table>
+        <thead>
+          <tr class="fade-in">
+            <th class="drink">Drink</th>
+            <th class="size-heading">Regular</th>
+            <th class="size-heading">Large</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="fade-in">
+            <td>Café Latte</td>
+            <td>R38</td>
+            <td>R42</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Cappuccino</td>
+            <td>R38</td>
+            <td>R42</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Red Cappuccino</td>
+            <td>R35</td>
+            <td>R39</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Americano White</td>
+            <td>R37</td>
+            <td>R40</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Americano Black</td>
+            <td>R34</td>
+            <td>R37</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Hot Chocolate</td>
+            <td>R34</td>
+            <td>R37</td>
+          </tr>
+          <tr class="fade-in">
+            <td>White Hot Chocolate</td>
+            <td>R36</td>
+            <td>R38</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Cafe Mocha</td>
+            <td>R45</td>
+            <td>R50</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Cafe Mocha White</td>
+            <td>R47</td>
+            <td>R50</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Dark/White Chocolate Freeze</td>
+            <td class="dash">-</td>
+            <td>R48</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Caramel/Hazelnut/Vanilla Latte</td>
+            <td>R48</td>
+            <td>55</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Caramel/Hazelnut/Vanilla Iced Latte</td>
+            <td class="dash">-</td>
+            <td>R55</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Iced Latte</td>
+            <td class="dash">-</td>
+            <td>R40</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Iced Coffee</td>
+            <td class="dash">-</td>
+            <td>R55</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Black Iced Latte</td>
+            <td class="dash">-</td>
+            <td>R37</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Spice Chai Latte</td>
+            <td>R34</td>
+            <td>R38</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Dirty Spice Chai Latte</td>
+            <td>R48</td>
+            <td>R55</td>
+          </tr>
+          <tr>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <h2>Filter</h2>
+
+
+    <div class="table-container food-container">
+      <h2 class="table-title">Food</h2>
+      <table>
+        <tbody>
+          <tr class="fade-in">
+            <td>Hot Dog</td>
+            <td>R25</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Chicken & Mayo</td>
+            <td>R45</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Toasted Cheese </td>
+            <td>R35</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Curry Mince</td>
+            <td>R55</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Chicken Wrap</td>
+            <td>R50</td>
+          </tr>
+
+          <tr class="fade-in">
+            <td>Soya Vienna</td>
+            <td>R20</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Burger & Chips</td>
+            <td>R70</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Chicken Strips & Chips</td>
+            <td>R50</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Hot Chips</td>
+            <td>R25</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Chip Sandwich</td>
+            <td>R35</td>
+          </tr>
+
+          <tr class="fade-in">
+            <td>Ice Cream 125ml
+            </td>
+            <td>R25</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Veg Burger & Chips
+            </td>
+            <td>R60</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Chicken Schnitzel & Cheesy Chips
+            </td>
+            <td>R90</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Lamb Macon, Egg & Cheese Sandwich
+            </td>
+            <td>R50</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Mediterranean Bowl</td>
+            <td>R70</td>
+          </tr>
+
+          <tr class="fade-in">
+            <td>Gluten Free Bread</td>
+            <td>R20</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Egg & Cheese Bagel</td>
+            <td>R35</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Extra Cheese Slice</td>
+            <td>R5</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Extra Cheese</td>
+            <td>R10</td>
+          </tr>
+          <tr>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-container smoothie-container">
+      <h2 class="table-title">Smoothie</h2>
+      <table>
+        <thead>
+          <tr class="fade-in">
+            <th class="drink">Drink</th>
+            <!-- <th class="size-heading">Regular</th> -->
+            <th class="size-heading">Large</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="fade-in">
+            <td>Lemonade Cooler</td>
+            <td>R35</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Health Smoothies</td>
+            <td>R55</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Blueberry Smoothie</td>
+            <td>R55</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Peanut Butter Smoothie</td>
+            <td>R55</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Granola Parfeit</td>
+            <td>R55</td>
+          </tr>
+          <tr class="fade-in">
+            <td>Boba - Blueberry / Mango</td>
+            <td>R65</td>
+          </tr>
+          <tr>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-
-  <div class="menu-container" id="menu">
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="35">
-      <div class="menu-items">
-        <h3>Red Cappuccino</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Served with vanilla ice cream</p> -->
-      </div>
-      <span class="price">R35</span>
-    </div>
-
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="37">
-      <div>
-        <h3>Americano White</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Frilly lettuce, cucumber, cherry tomato, peppers, feta, and house dressing</p> -->
-      </div>
-      <span class="price">R37</span>
-    </div>
-
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="34">
-      <div>
-        <h3>Americano Black</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Pan-fried, tossed in peri-peri harissa, fresh cream</p> -->
-      </div>
-      <span class="price">R34</span>
-    </div>
-
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="20">
-      <div>
-        <h3>Expresso</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Onion, tomato, pepper, cheese, chili + bread</p> -->
-      </div>
-      <span class="price">R20</span>
-    </div>
-
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="22">
-      <div>
-        <h3>Double Expresso</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Fresh garlic, butter, topped with mozzarella</p> -->
-      </div>
-      <span class="price">R22</span>
-    </div>
-
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="22">
-      <div>
-        <h3>Expresso Macchiato</h3>
-        <span class="size">Regular</span>
-        <!-- <p>2 fried eggs, cocktail sausages, avocado, mushroom & tomato</p> -->
-      </div>
-      <span class="price">R22</span>
-    </div>
-
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="34">
-      <div>
-        <h3>Hot Chocolate</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Slow-cooked mushrooms, fresh cream & black pepper</p> -->
-      </div>
-      <span class="price">R34</span>
-    </div>
-
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="36">
-      <div>
-        <h3>White Hot Chocolate</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Lettuce, cucumber, avocado, egg & mayo, house dressing</p> -->
-      </div>
-      <span class="price">R36</span>
-    </div>
-
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="45">
-      <div>
-        <h3>Cafe Mocha</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R45</span>
-    </div>
+  <!-- </section> -->
 
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="47">
-      <div>
-        <h3>Cafe Mocha White</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R47</span>
-    </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="48">
-      <div>
-        <h3>Caramel/Hazelnut/Vanilla Latte</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-info">
+        <p class="hidden"><strong>Address:</strong> 9A John Zikhali Road, Berea, 4001</p>
+        <p class="hidden"><strong>Tel:</strong> 0740286936 / 0737150576</p>
+        <p class="hidden"><strong>Email:</strong> <a href="mailto:natashadadoo@yahoo.com">natashadadoo@yahoo.com</a></p>
       </div>
-      <span class="price">R48</span>
-    </div>
 
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="34">
-      <div>
-        <h3>Spice Chai Latte</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/gourmet_coffeedbg/?igsh=MTR2d3dyaGw1bGhsMQ%3D%3D#" class="social-link"
+          title="Gourmet Coffee Instagram Account" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/+27740286936" class="social-link" title="Whatsapp Gourmet Coffee" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
       </div>
-      <span class="price">R34</span>
-    </div>
-
-    <div class="menu-item" data-type="coffee" data-size="regular" data-price="48">
-      <div>
-        <h3>Dirty Spice Chai Latte</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
+      <div class="footer-bottom">
+        <p>© 2025 Gourmet Coffee. All Rights Reserved.</p>
+        <p>Developed by <a href="https://www.rahuldawpersad.com"><span class="designx">DesignX</span></a>
+        </p>
       </div>
-      <span class="price">R48</span>
+    
     </div>
-
-    <!-- Large Size -->
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="42">
-      <div>
-        <h3>Cafe Latte</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R42</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="42">
-      <div>
-        <h3>Cappuccino</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R42</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="39">
-      <div>
-        <h3>Red Cappuccino</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R39</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="40">
-      <div>
-        <h3>Americano White</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R40</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="37">
-      <div>
-        <h3>Americano Black</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R37</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="37">
-      <div>
-        <h3>Hot Chocolate</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R37</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="38">
-      <div>
-        <h3>White Hot Chocolate</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R38</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="50">
-      <div>
-        <h3>Cafe Mocha</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R50</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="50">
-      <div>
-        <h3>Cafe Mocha White</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R50</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="48">
-      <div>
-        <h3>Dark/White Chocolate Freeze</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R48</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="55">
-      <div>
-        <h3>Caramel/Hazelnut/Vanilla Latte</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R55</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="55">
-      <div>
-        <h3>Caramel/Hazelnut/Vanilla Iced Latte</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R55</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="40">
-      <div>
-        <h3>Iced Latte</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R40</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="55">
-      <div>
-        <h3>Iced Coffee</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R55</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="37">
-      <div>
-        <h3>Blacked Iced Coffee</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R37</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="38">
-      <div>
-        <h3>Spice Chai Latte</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R38</span>
-    </div>
-    <div class="menu-item" data-type="coffee" data-size="large" data-price="55">
-      <div>
-        <h3>Dirty Spice Chai Latte</h3>
-        <span class="size">Large</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R55</span>
-    </div>
-
-    <!-- Food Menu -->
-    <div class="menu-item" data-type="food" data-size="regular" data-price="25">
-      <div>
-        <h3>Hot Dog</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R25</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="45">
-      <div>
-        <h3>Chicken & Mayo</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R45</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="35">
-      <div>
-        <h3>Toasted Cheese</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R35</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="55">
-      <div>
-        <h3>Curry Mince</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R55</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="50">
-      <div>
-        <h3>Chicken Wrap</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R50</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="20">
-      <div>
-        <h3>Soya Vienna</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R20</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="70">
-      <div>
-        <h3>Burger & Chips</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R70</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="50">
-      <div>
-        <h3>Chicken Strips & Chips</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R50</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="25">
-      <div>
-        <h3>Hot Chips</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R25</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="35">
-      <div>
-        <h3>Chip Sandwich</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R35</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="25">
-      <div>
-        <h3>Ice Cream 125ml</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R25</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="60">
-      <div>
-        <h3>Veg Burger & Chips</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R60</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="90">
-      <div>
-        <h3>Chicken Schnitzel & Cheesy Chips</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R90</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="50">
-      <div>
-        <h3>Lamb Macon, Egg & Cheese Sandwich</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R50</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="70">
-      <div>
-        <h3>Mediterranean Bowl</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R70</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="20">
-      <div>
-        <h3>Gluten Free Bread</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R20</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="35">
-      <div>
-        <h3>Egg & Cheese Bagel</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R35</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="5">
-      <div>
-        <h3>Extra Cheese Slice</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R5</span>
-    </div>
-    <div class="menu-item" data-type="food" data-size="regular" data-price="10">
-      <div>
-        <h3>Extra Cheese</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R10</span>
-    </div>
-
-    <!-- Smoothie Menu -->
-    <div class="menu-item" data-type="smoothie" data-size="regular" data-price="35">
-      <div>
-        <h3>Lemonade Cooler</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R35</span>
-    </div>
-    <div class="menu-item" data-type="smoothie" data-size="regular" data-price="55">
-      <div>
-        <h3>Health Smoothies</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R55</span>
-    </div>
-    <div class="menu-item" data-type="smoothie" data-size="regular" data-price="55">
-      <div>
-        <h3>Blueberry Smoothie</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R55</span>
-    </div>
-    <div class="menu-item" data-type="smoothie" data-size="regular" data-price="55">
-      <div>
-        <h3>Peanut Butter Smoothie</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R55</span>
-    </div>
-    <div class="menu-item" data-type="smoothie" data-size="regular" data-price="55">
-      <div>
-        <h3>Granola Smoothie</h3>
-        <span class="size">Regular</span>
-        <!-- <p>Chicken strips in Portuguese flavors with grilled corn</p> -->
-      </div>
-      <span class="price">R55</span>
-    </div>
-
-  </div>
+   
+  </footer>
 
 
-  <script src="/assets/js/menu.js"></script>
+
+
   <!-- Link to Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script src="/assets/js/menu.js"></script>
+
   <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".fade-in").forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.add("visible");
+        }, index * 100);
+      });
+    });
+
     const menuOpenButton = document.querySelector("#menu-open-button");
     const menuCloseButton = document.querySelector("#menu-close-button");
     const navLinks = document.querySelectorAll(".nav-menu .nav-link");
+    const paragraphs = document.querySelectorAll(".hidden");
+
 
     menuOpenButton.addEventListener("click", () => {
       // Toggle Mobile Menu Visibility
@@ -614,34 +552,26 @@
 
 
 
-    function isInViewport(element) {
-      const rect = element.getBoundingClientRect();
-      return rect.top >= 0 && rect.bottom <= window.innerHeight;
-    }
-
-    // Detect when the section and menu items come into view
-    document.addEventListener('scroll', function () {
-      const welcomeSection = document.querySelector('.welcome-section');
-      const menuContent = document.querySelector('.menu-content');
-
-
-      // Check if welcome section is in the viewport
-      if (isInViewport(welcomeSection)) {
-        menuContent.classList.add('show-content');
-      } else {
-        menuContent.classList.remove('show-content');
-      }
+// Text Scroll Animation
+document.addEventListener("scroll", function () {
+    paragraphs.forEach((paragraph) => {
+        if (isInView(paragraph)) {
+            paragraph.classList.add("hidden--visible");
+        } else {
+            paragraph.classList.remove("hidden--visible");
+        }
     });
+});
+
+function isInView(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.bottom > 0 &&
+        rect.top < (window.innerHeight - 150 || document.documentElement.clientHeight - 150)
+    );
+}
 
 
-
-    // Trigger the animation on page load as well
-    window.addEventListener('load', function () {
-      const menuContent = document.querySelector('.menu-content');
-      menuContent.classList.add('show-content');
-    });
-
-    menuContent.classList.add('show-content');
 
   </script>
 </body>

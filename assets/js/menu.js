@@ -1,75 +1,51 @@
-// Get elements
-const menuSelect = document.getElementById('menu-select');
-const sizeSelect = document.getElementById('size-select');
-// const priceSelect = document.getElementById('price-select');
-const menuItems = document.querySelectorAll('.menu-item');
-const paragraphs = document.querySelectorAll(".hidden");
+var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    effect: "fade", // Enables fade transition
+    fadeEffect: {
+        crossFade: true, // Smooth transition between slides
+    },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
 
-
-// Text Scroll Animation
-document.addEventListener("scroll", function () {
-    paragraphs.forEach((paragraph) => {
-        if (isInView(paragraph)) {
-            paragraph.classList.add("hidden--visible");
-        } else {
-            paragraph.classList.remove("hidden--visible");
-        }
-    });
 });
 
-function isInView(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.bottom > 0 &&
-        rect.top < (window.innerHeight - 150 || document.documentElement.clientHeight - 150)
-    );
-}
-// End of Text Animation
 
-// Function to filter menu based on selection
-function filterMenu() {
-    const selectedCategory = menuSelect.value;
-    const selectedSize = sizeSelect.value;
-    // const selectedPrice = priceSelect.value;
 
-    menuItems.forEach(item => {
-        const itemType = item.getAttribute('data-type');
-        const itemSize = item.getAttribute('data-size');
-        // const itemPrice = item.getAttribute('data-price');
+// function isInViewport(element) {
+//     const rect = element.getBoundingClientRect();
+//     return rect.top >= 0 && rect.bottom <= window.innerHeight;
+// }
 
-        let showItem = true;
+// Detect when the section and menu items come into view
+document.addEventListener('scroll', function () {
+    const welcomeSection = document.querySelector('.welcome-section');
+    const menuContent = document.querySelector('.menu-content');
 
-        // Filter by category
-        if (selectedCategory !== 'all' && selectedCategory !== itemType) {
-            showItem = false;
-        }
 
-        // Filter by size
-        if (selectedSize !== 'all' && selectedSize !== itemSize) {
-            showItem = false;
-        }
+    // Check if welcome section is in the viewport
+    if (isInViewport(welcomeSection)) {
+        menuContent.classList.add('show-content');
+    } else {
+        menuContent.classList.remove('show-content');
+    }
+});
 
-        // Filter by price range
-        // if (selectedPrice !== 'all' && selectedPrice !== itemPrice) {
-        //     showItem = false;
-        // }
 
-        // Show or hide item
-        item.style.display = showItem ? 'flex' : 'none';
-    });
-}
 
-// Add event listeners to dropdowns
-menuSelect.addEventListener('change', filterMenu);
-sizeSelect.addEventListener('change', filterMenu);
-priceSelect.addEventListener('change', filterMenu);
+// Trigger the animation on page load as well
+window.addEventListener('load', function () {
+    const menuContent = document.querySelector('.menu-content');
+    menuContent.classList.add('show-content');
+});
 
-// Initial filter on page load
-filterMenu();
+menuContent.classList.add('show-content');
 
-// Function to toggle visibility of the filter dropdowns
-function toggleFilters() {
-    const filterContainer = document.getElementById('filters-container');
-    filterContainer.classList.toggle('show');
-}
+
+
 
