@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Coffee Website Demo</title>
+    <!-- Link to Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/655b3b7e45.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <!-- Link to Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.module.css">
+</head>
+<style>
+    .hidden {
+        margin: 1rem 0;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: 1s ease;
+    }
+
+    .hidden--visible {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+
+    /* menu item */
+    .menu-container {
+        color: #f0f0f0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+        margin: 1.5;
+    }
+
+    .menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 1px solid rgb(2, 150, 59);
+        padding-bottom: 15px;
+    }
+
+
+    .menu-item h3 {
+        margin: 0 0 5px;
+        font-size: 22px;
+        color: #22cf70;
+
+    }
+
+    .menu-item .size {
+        font-style: oblique;
+    }
+
+    .menu-item p {
+        margin: 0;
+        font-size: 16px;
+        color: #ffffff;
+    }
+
+    .price {
+        font-size: 22px;
+        color: #fffdfa;
+        font-weight: bold;
+        float: right;
+    }
+
+    .view-more-btn {
+        width: 200px;
+        /* Set the desired width for the button */
+        margin: 20px auto 0;
+        /* Centers the button and adds top margin */
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #049e49;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        text-align: center;
+    }
+
+
+    .view-more-btn:hover {
+        background-color: #1a9f57;
+        /* Slightly darker green for hover effect */
+    }
+
+
+    @media (max-width: 768px) {
+        .menu-container {
+            grid-template-columns: 1fr;
+            padding: 10px;
+        }
+
+        .price {
+            margin-top: 5px;
+        }
+
+        .view-more-btn {
+            margin-top: 20px;
+            font-size: 16px;
+            width: 50%;
+            /* Full width for smaller screens */
+        }
+    }
+
+    @media (min-width: 769px) {
+        .menu-container {
+            justify-content: center;
+            /* Center the items on larger screens */
+        }
+    }
+
+    /* From Uiverse.io by cssbuttons-io */
+    .menu {
+        max-width: 95%;
+        margin: auto;
+        /* background: rgba(255, 255, 255, 0.1); */
+        padding: 15px;
+        border-radius: 5px;
+        /* box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); */
+    }
+
+    /* 
+    h1 {
+        font-weight: 600;
+        color: #02bb55;
+        letter-spacing: 1px;
+        font-size: 1.6em;
+    } */
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th,
+    td {
+        padding: 6px;
+        text-align: left;
+        font-size: 0.95em;
+    }
+
+    th {
+        color: #02bb55;
+        font-weight: 600;
+    }
+
+    .drink {
+        visibility: hidden;
+    }
+
+    tr {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    tr:last-child {
+        border-bottom: none;
+    }
+
+    tr:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transition: 0.3s ease;
+        cursor: pointer;
+    }
+
+    .dash {
+        padding: 0.8em;
+    }
+
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+    }
+
+    .visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .table-title {
+        font-size: 1.4em;
+        font-weight: 600;
+        font-style: oblique;
+        color: #02bb55;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 884px) {
+
+        th,
+        td {
+            font-size: 0.9em;
+            padding: 5px;
+        }
+
+        h1 {
+            font-size: 1.4em;
+        }
+
+        .menu {
+            padding: 12px;
+            /* max-width: 100%; */
+        }
+    }
+
+    /* Desktop Adjustments */
+    @media (min-width: 601px) {
+        .menu {
+            max-width: 50%;
+            /* Reduce width for a tighter layout */
+            padding: 20px;
+        }
+
+        th,
+        td {
+            font-size: 1em;
+            padding: 8px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+    }
+</style>
+
+<body>
+
+    <!-- Header & Navbar Section -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                <img src="assets/images/logo.jpeg" alt="Coffee Logo" class="logo-img">
+                <!-- <h2 class="logo-text">☕ Coffee</h2> -->
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fa-solid fa-xmark"></button>
+
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="public/menu.html" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials" class="nav-link">Events</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <button id="menu-open-button" class="fa-solid fa-bars"></button>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <div class="hero" id="home">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/coffee-bg.jpg" alt="Gourmet Coffee" class="bg-image">
+                        <div class="overlay">
+                            <h1>Welcome To <span>GOURMET COFFEE</span></h1>
+                            <p>"The Perfect Coffee in the Heart of Durban".</p>
+                            <button class="viewmenubtn ">View Menu</button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/coffee-bg.png" alt="Gourmet Coffee" class="bg-image">
+                        <div class="overlay">
+                            <h1>Welcome To <span>GOURMET COFFEE</span></h1>
+                            <p>"The Perfect Coffee in the Heart of Durban".</p>
+                            <button class="viewmenubtn">View Menu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="section-content">
+                <div class="about-details">
+                    <h2 class="section-title hidden">About Us</h2>
+                    <p class="text hidden"><span>Gourmet Coffee</span> was established in 2014 and serves specialty
+                        coffee
+                        drinks and light meals. We are based in one of the most beautiful places in Durban, which is the
+                        Durban Botanic Garden. An ideal spot to unwind, catch up with friends or enjoy some quiet time.
+                    </p>
+                    <div class="operating-hours">
+                        <h3 class="hours-title hidden">Opening Hours</h3>
+                        <div class="hours-details">
+                            <p class="hidden">Monday – Friday: 08:30 AM - 16:00 PM</p>
+                            <hr class="hidden">
+                            <p class="hidden">Saturday: 08:30 AM - 16:30 PM</p>
+                            <hr class="hidden">
+                            <p class="hidden">Sunday: 08:30 AM - 16:30 PM</p>
+                            <hr class="hidden">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Catering Section -->
+        <section class="event-section">
+            <div class="content">
+                <div class="content-text">
+                    <h2 class="section-title hidden">We Cater For</h2>
+                    <p class="text hidden"> "Make your events special with our premium coffee and catering services".
+                    </p>
+                </div>
+                <div class="event-list">
+                    <div class="event-card hidden" data-text="Corporate Events">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Corporate Events</h3>
+                    </div>
+                    <div class="event-card hidden" data-text="Wedding Functions">
+                        <i class="fas fa-ring"></i>
+                        <h3>Wedding Functions</h3>
+                    </div>
+                    <div class="event-card hidden" data-text="Birthday Parties">
+                        <i class="fas fa-birthday-cake"></i>
+                        <h3>Birthday Parties</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Talk to us section -->
+        <section class="news-letter" id="News-letter">
+            <div class="news">
+                <div class="container">
+                    <h1 class="news-heading section-title hidden">Elevate Your Event with <br /> Gourmet Coffee</h1>
+                    <div class="form-container"></div>
+                    <p class="des how-de hidden">
+                        "Talk to us about bringing Gourmet Coffee to your event".
+                    </p>
+                </div>
+                <a href="mailto:natashadadoo@yahoo.com?subject=Gourmet%20Coffee%20Event%20Inquiry&body=Hello,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20bringing%20gourmet%20coffee%20to%20my%20event.%0D%0A%0D%0ARegards"
+                    class="btn hidden">
+                    Email Us
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- Menu Section -->
+        <section class="menu-section" id="menu">
+            <div class="menu">
+                <!-- <h1 class="fade-in">Our Menu</h1> -->
+                <h2 class="section-title fade-in hidden">Our Menu</h2>
+
+                <div class="table-container">
+                    <table>
+                        <tbody>
+                            <tr class="fade-in">
+                                <td>Espresso</td>
+                                <td>R20</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Double Espresso</td>
+                                <td>R22</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Expresso Machiato</td>
+                                <td>R22</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Flat White</td>
+                                <td>R39</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Babyccino</td>
+                                <td>R15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr class="fade-in">
+                                <th class="drink">Drink</th>
+                                <th class="size-heading">Regular</th>
+                                <th class="size-heading">Large</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="fade-in">
+                                <td>Café Latte</td>
+                                <td>R38</td>
+                                <td>R42</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Cappuccino</td>
+                                <td>R38</td>
+                                <td>R42</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Red Cappuccino</td>
+                                <td>R35</td>
+                                <td>R39</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Americano White</td>
+                                <td>R37</td>
+                                <td>R40</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Americano Black</td>
+                                <td>R34</td>
+                                <td>R37</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Hot Chocolate</td>
+                                <td>R34</td>
+                                <td>R37</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>White Hot Chocolate</td>
+                                <td>R36</td>
+                                <td>R38</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Cafe Mocha</td>
+                                <td>R45</td>
+                                <td>R50</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Cafe Mocha White</td>
+                                <td>R47</td>
+                                <td>R50</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Dark/White Chocolate Freeze</td>
+                                <td class="dash">-</td>
+                                <td>R48</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Caramel/Hazelnut/Vanilla Latte</td>
+                                <td>R48</td>
+                                <td>55</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Caramel/Hazelnut/Vanilla Iced Latte</td>
+                                <td class="dash">-</td>
+                                <td>R55</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Iced Latte</td>
+                                <td class="dash">-</td>
+                                <td>R40</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Iced Coffee</td>
+                                <td class="dash">-</td>
+                                <td>R55</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Black Iced Latte</td>
+                                <td class="dash">-</td>
+                                <td>R37</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Spice Chai Latte</td>
+                                <td>R34</td>
+                                <td>R38</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Dirty Spice Chai Latte</td>
+                                <td>R48</td>
+                                <td>R55</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="table-container">
+                    <h2 class="table-title">Food</h2>
+                    <table>
+                        <tbody>
+                            <tr class="fade-in">
+                                <td>Hot Dog</td>
+                                <td>R25</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Chicken & Mayo</td>
+                                <td>R45</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Toasted Cheese </td>
+                                <td>R35</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Curry Mince</td>
+                                <td>R55</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Chicken Wrap</td>
+                                <td>R50</td>
+                            </tr>
+
+                            <tr class="fade-in">
+                                <td>Soya Vienna</td>
+                                <td>R20</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Burger & Chips</td>
+                                <td>R70</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Chicken Strips & Chips</td>
+                                <td>R50</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Hot Chips</td>
+                                <td>R25</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Chip Sandwich</td>
+                                <td>R35</td>
+                            </tr>
+
+                            <tr class="fade-in">
+                                <td>Ice Cream 125ml
+                                </td>
+                                <td>R25</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Veg Burger & Chips
+                                </td>
+                                <td>R60</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Chicken Schnitzel & Cheesy Chips
+                                </td>
+                                <td>R90</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Lamb Macon, Egg & Cheese Sandwich
+                                </td>
+                                <td>R50</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Mediterranean Bowl</td>
+                                <td>R70</td>
+                            </tr>
+
+                            <tr class="fade-in">
+                                <td>Gluten Free Bread</td>
+                                <td>R20</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Egg & Cheese Bagel</td>
+                                <td>R35</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Extra Cheese Slice</td>
+                                <td>R5</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Extra Cheese</td>
+                                <td>R10</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-container">
+                    <h2 class="table-title">Smoothie</h2>
+                    <table>
+                        <thead>
+                            <tr class="fade-in">
+                                <th class="drink">Drink</th>
+                                <!-- <th class="size-heading">Regular</th> -->
+                                <th class="size-heading">Large</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="fade-in">
+                                <td>Lemonade Cooler</td>
+                                <td>R35</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Health Smoothies</td>
+                                <td>R55</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Blueberry Smoothie</td>
+                                <td>R55</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Peanut Butter Smoothie</td>
+                                <td>R55</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Granola Parfeit</td>
+                                <td>R55</td>
+                            </tr>
+                            <tr class="fade-in">
+                                <td>Boba - Blueberry / Mango</td>
+                                <td>R65</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+            <!-- <h2 class="section-title hidden">Our Menu</h2>
+            <div class="menu-container">
+                <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="35">
+                    <div class="menu-items">
+                        <h3>Red Cappuccino</h3>
+                        <span class="size">Regular</span>
+                    </div>
+                    <span class="price">R35</span>
+                </div>
+
+                <div class="menu-item hidden" data-type="coffee" data-size="regular" data-price="37">
+                    <div>
+                        <h3>Americano White</h3>
+                        <span class="size">Regular</span>
+                    </div>
+                    <span class="price">R37</span>
+                </div>
+
+                <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="42">
+                    <div>
+                        <h3>Cafe Latte</h3>
+                        <span class="size">Large</span>
+                    </div>
+                    <span class="price">R42</span>
+                </div>
+                <div class="menu-item hidden" data-type="coffee" data-size="large" data-price="42">
+                    <div>
+                        <h3>Cappuccino</h3>
+                        <span class="size">Large</span>
+                    </div>
+                    <span class="price">R42</span>
+                </div>
+
+                <div class="menu-item hidden" data-type="food" data-size="regular" data-price="25">
+                    <div>
+                        <h3>Hot Dog</h3>
+                        <span class="size">Regular</span>
+                    </div>
+                    <span class="price">R25</span>
+                </div>
+                <div class="menu-item hidden" data-type="food" data-size="regular" data-price="45">
+                    <div>
+                        <h3>Chicken & Mayo</h3>
+                        <span class="size">Regular</span>
+                    </div>
+                    <span class="price">R45</span>
+                </div>
+                <div class="menu-item hidden" data-type="smoothie" data-size="regular" data-price="35">
+                    <div>
+                        <h3>Lemonade Cooler</h3>
+                        <span class="size">Regular</span>
+                    </div>
+                    <span class="price">R35</span>
+                </div>
+                <div class="menu-item hidden" data-type="smoothie" data-size="regular" data-price="55">
+                    <div>
+                        <h3>Health Smoothies</h3>
+                        <span class="size">Regular</span>
+                    </div>
+                    <span class="price">R55</span>
+                </div>
+              
+            </div>
+            <button class="view-more-btn hidden" id="viewMoreBtn">View More</button> -->
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-info">
+                    <p class="hidden"><strong>Address:</strong> 9A John Zikhali Road, Berea, 4001</p>
+                    <p class="hidden"><strong>Tel:</strong> 0740286936 / 0737150576</p>
+                    <p class="hidden"><strong>Email:</strong> <a
+                            href="mailto:natashadadoo@yahoo.com">natashadadoo@yahoo.com</a></p>
+                </div>
+
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/gourmet_coffeedbg/?igsh=MTR2d3dyaGw1bGhsMQ%3D%3D#"
+                        class="social-link hidden" title="Gourmet Coffee Instagram Account" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/+27740286936" class="social-link hidden" title="Whatsapp Gourmet Coffee"
+                        target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="hidden">© 2025 Gourmet Coffee. All Rights Reserved.</p>
+                    <p class="hidden">Developed by <span class="designx">DesignX</span></p>
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- <footer class="footer-section">
+            <div class="section-content">
+                <div class="footer-contact">
+                    <p class="address hidden">Address: 9A John Zikhali Road, Berea, 4001</p>
+                    <p class="phone hidden">Tel: 0740286936 / 0737150576</p>
+                    <p class="email hidden">Email:
+                        <a
+                            href="mailto:natashadadoo@yahoo.com?subject=Gourmet%20Coffee%20Event%20Inquiry&body=Hello,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20bringing%20gourmet%20coffee%20to%20my%20event.%0D%0A%0D%0ARegards">
+                            natashadadoo@yahoo.com
+                        </a>
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="social-link-list">
+                        <a href="https://www.instagram.com/gourmet_coffeedbg/?igsh=MTR2d3dyaGw1bGhsMQ%3D%3D#"
+                            class="social-link hidden" title="Gourmet Coffee Instagram Account" target="_blank"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/+27740286936" title="Whatsapp Gourmet Coffee"
+                            class="social-link hidden"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright-text hidden">© 2025 Gourmet Coffee. All Rights Reserved.</p>
+                <p class="developed-text hidden">Developed by <a href="https://www.rahuldawpersad.com"
+                        target="_blank">DesignX</a></p>
+            </div>
+        </footer> -->
+    </main>
+
+
+    <!-- Link to Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        let slides = document.querySelectorAll(".slide");
+        let index = 0;
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".fade-in").forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add("visible");
+                }, index * 100);
+            });
+        });
+
+        function nextSlide() {
+            slides[index].classList.remove("active");
+            index = (index + 1) % slides.length;
+            slides[index].classList.add("active");
+        }
+
+        document.querySelectorAll('.event-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+
+        // function animateOverlay() {
+        //     document.querySelectorAll(".overlay").forEach(overlay => {
+        //         if (window.scrollY === 0) {
+        //             overlay.classList.remove("visible");
+        //             setTimeout(() => {
+        //                 overlay.classList.add("visible");
+        //             }, 100);
+        //         }
+        //     });
+        // }
+
+        document.addEventListener("scroll", function () {
+            const overlay = document.querySelectorAll(".overlay");
+
+            overlay.forEach(function (element) {
+                if (isInView(element)) {
+                    element.classList.add("visible");  // Add the 'visible' class to trigger the animation
+                } else {
+                    element.classList.remove("visible");  // Remove the 'visible' class when it's out of view
+                }
+            });
+        });
+
+        function isInView(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.top <= window.innerHeight
+            );
+        }
+
+        document.getElementById('viewMoreBtn').addEventListener('click', function () {
+            window.location.href = 'public/menu.html'; // Redirects to the menu.html page
+        });
+
+
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+    </script>
+</body>
+
+</html>

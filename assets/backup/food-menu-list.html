@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Coffee Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+        .menu {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            font-weight: 600;
+            color: #02bb55;
+            letter-spacing: 1px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            font-size: 1.1em;
+        }
+        th {
+            color: #02bb55;
+            font-weight: 600;
+        }
+        .drink{
+            visibility: hidden;
+        }
+        tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        tr:last-child {
+            border-bottom: none;
+        }
+        tr:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transition: 0.3s ease;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .dash{
+            padding: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <h1 class="fade-in">Our Menu</h1>
+        <table>
+            <tbody>
+                <tr class="fade-in"><td>Espresso</td><td>R20</td></tr>
+                <tr class="fade-in"><td>Double Espresso</td><td>R22</td></tr>
+                <tr class="fade-in"><td>Expresso Machiato</td><td>R22</td></tr>
+                <tr class="fade-in"><td>Flat White</td><td>R39</td></tr>
+                <tr class="fade-in"><td>Babyccino</td><td>R15</td></tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr class="fade-in"><th class="drink">Drink</th><th>Regular</th><th>Large</th></tr>
+            </thead>
+            <tbody>
+                <tr class="fade-in"><td>Café Latte</td><td>R38</td><td>R42</td></tr>
+                <tr class="fade-in"><td>Cappuccino</td><td>R38</td><td>R42</td></tr>
+                <tr class="fade-in"><td>Red Cappuccino</td><td>R35</td><td>R39</td></tr>
+                <tr class="fade-in"><td>Americano White</td><td>R37</td><td>R40</td></tr>
+                <tr class="fade-in"><td>Americano Black</td><td>R34</td><td>R37</td></tr>
+                <tr class="fade-in"><td>Hot Chocolate</td><td>R34</td><td>R37</td></tr>
+                <tr class="fade-in"><td>White Hot Chocolate</td><td>R36</td><td>R38</td></tr>
+                <tr class="fade-in"><td>Cafe Mocha</td><td>R45</td><td>R50</td></tr>
+                <tr class="fade-in"><td>Cafe Mocha White</td><td>R47</td><td>R50</td></tr>
+                <tr class="fade-in"><td>Dark/White Chocolate Freeze</td><td class="dash">-</td><td>R48</td></tr>
+                <tr class="fade-in"><td>Caramel/Hazelnut/Vanilla Latte</td><td>R48</td><td>55</td></tr>
+                <tr class="fade-in"><td>Caramel/Hazelnut/Vanilla Iced Latte</td><td class="dash">-</td><td>R55</td></tr>
+                <tr class="fade-in"><td>Iced Latte</td><td class="dash">-</td><td>R40</td></tr>
+                <tr class="fade-in"><td>Iced Coffee</td><td class="dash">-</td><td>R55</td></tr>
+                <tr class="fade-in"><td>Black Iced Latte</td><td class="dash">-</td><td>R37</td></tr>
+                <tr class="fade-in"><td>Spice Chai Latte</td><td>R34</td><td>R38</td></tr>
+                <tr class="fade-in"><td>Dirty Spice Chai Latte</td><td>R48</td><td>R55</td></tr>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".fade-in").forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add("visible");
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
